@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter by Letter Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #name-display {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="displayName()">Enter</button>
+    <div id="name-display"></div>
+
+    <script>
+        function displayName() {
+            const name = "Neeraj";  // You can replace this with any name
+            const nameDisplay = document.getElementById("name-display");
+            let index = 0;
+
+            nameDisplay.innerHTML = "";  // Clear the previous content
+            const interval = setInterval(() => {
+                if (index < name.length) {
+                    nameDisplay.innerHTML += name.charAt(index);  // Add the next letter
+                    index++;
+                } else {
+                    clearInterval(interval);  // Stop once all letters are displayed
+                }
+            }, 1000);  // 1000ms = 1 second delay
+        }
+    </script>
+
+</body>
+</html>
